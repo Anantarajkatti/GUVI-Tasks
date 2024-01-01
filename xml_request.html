@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title> Countries </title>
+        
+
+    </head>
+
+    <body>
+        <h1> Countries </h1>
+        <p>there are 250 countries in the list</p>
+        <p>In the console country, region, subregion, population, Flag are shown</p>
+        <script>
+            const xhr= new XMLHttpRequest();
+            const url='https://restcountries.com/v3.1/all';
+            xhr.onreadystatechange=function()
+            {
+                if(xhr.readyState===XMLHttpRequest.DONE)
+                {
+                    if(xhr.status===200)
+                    {
+                        const response=JSON.parse(xhr.responseText);
+                        //console.log(response)
+                       for(let i=0;i< response.length;i++)
+                       {
+                        console.log(i+1 +"] Country --> "+response[i].name.common)
+                        console.log("          region  --> "+response[i].region)
+                        console.log("             subregion --> "+response[i].subregion)
+                        console.log("                population --> "+response[i].population)
+                        console.log("                      Flag---->"+response[i].flag)
+
+                       }
+                       // consol.log(name)
+                        //response.forEach(item => {
+                         //   console.log(item.name.common)
+                        };
+                        
+                        
+                    
+                }
+                    else
+                    {
+                        console.error("there was problem with the request.")
+                    }
+            }
+            
+            xhr.open('GET',url,true)
+
+            xhr.send()
+        </script>
+    </body>
+</html>
