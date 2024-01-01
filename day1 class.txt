@@ -1,2 +1,0 @@
-this is the first day class work file
-so we can now check for modified pull requests
