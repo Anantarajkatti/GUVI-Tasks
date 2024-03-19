@@ -1,0 +1,39 @@
+body{
+    font-size: 1vw;
+}
+div{
+    border:1px solid black;
+}
+
+.header{
+    display:flex;
+    height:15vh;
+    width:100%;
+}
+.headleft{
+    width:15%
+
+}
+.date{ 
+    width:10%
+
+}
+.papername{
+  width:50%
+}
+
+.rupees{
+    width:10%;
+}
+.headright{
+    width:15%
+}
+.locationbar{
+    height:5%;
+}
+.pagecontent{
+    height:80vh;
+}
+.footer{
+    height:5vh;
+}
