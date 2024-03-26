@@ -1,0 +1,12 @@
+.container{
+    width: 100%;
+    background-color: aqua;
+}
+.container div{
+    width: 50%;
+    float: left;
+}
+img{
+    width: 200px;
+    
+}

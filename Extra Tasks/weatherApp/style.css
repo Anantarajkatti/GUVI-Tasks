@@ -1,0 +1,15 @@
+.card-body{
+    background: rgb(234,235,218);
+background: radial-gradient(circle, rgba(234,235,218,1) 8%, rgba(117,117,98,1) 100%);
+}
+
+.row{
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+body{
+    background: rgb(187,156,205);
+    background: radial-gradient(circle, rgba(187,156,205,1) 0%, rgba(193,196,212,1) 100%);
+}
+ 

@@ -1,0 +1,28 @@
+#fav_id{
+    height: 100px;
+    width: 150px;
+    padding: 1px;
+    background-color:black;
+}
+#image_div_id
+ {
+   
+    background-color: antiquewhite;
+ }
+ .card{
+    padding: 10px;
+    border: 5pt;
+    border-color: black;
+    display: inline;
+ }
+ .carousel-inner{
+   width: fit-content;
+ }
+ .card-img-top
+ {
+   width: auto;
+ }
+ .buttoncarousel-control-prev{
+   color: black;
+ }
+ 

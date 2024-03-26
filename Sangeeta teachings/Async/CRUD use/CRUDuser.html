@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    C - CREATE => POST
+    R - READ => GET
+    U - UPDATE => PUT
+    D - DELETE => DELETE
+    <script>
+        let url = "https://659e6ba547ae28b0bd35caec.mockapi.io/product"
+
+        async function getProductsData() {
+            let data = await fetch(url, { method: "GET" })
+            let res = await data.json()
+            //console.log(res)
+            console.table(res);
+        }
+        getProductsData()
+
+
+
+        //get products by ID
+        const id = 5
+        console.log(`${url}/${id}`)
+
+        console.log(url + "/" + id)
+
+        async function getProductById() {
+            let data = await fetch(`${url}/${id}`, { method: "GET" })
+            let res = await data.json()
+            console.log(res)
+        }
+        // getProductById()
+
+        //create products
+
+        async function createProduct() {
+            let newProduct = {
+                name: "Samsung Galaxy Book5",
+                poster: "https://m.media-amazon.com/images/I/71iBfI3rAYL._SX679_.jpg",
+                price: "₹2,00,000",
+                rating: 5,
+                summary: "12th Generation Intel EVOTM Core i7-1260P processor"
+            }
+            //POST
+            // 1. method - POST
+            // 2. headers - data is in JSON
+            // 3. body - pass data its should be JSON
+
+            let data = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newProduct)
+            })
+            let res = await data.json()
+            console.table(res)
+        }
+
+        // createProduct()
+
+        async function deleteProductById(id) {
+            let data = await fetch(`${url}/${id}`, { method: 'DELETE' })
+            let res = await data.json()
+            console.table(res);
+        }
+        // deleteProductById(13)
+
+
+        //update products
+
+        async function updateProductById(id) {
+            let updateProduct = {
+                name: "Samsung Galaxy Book6",
+                poster: "https://m.media-amazon.com/images/I/71iBfI3rAYL._SX679_.jpg",
+                price: "₹3,00,000",
+                rating: 5,
+                summary: "13th Generation Intel EVOTM Core i7-1260P processor"
+            }
+            //POST
+            // 1. method - PUT
+            // 2. headers - data is in JSON
+            // 3. body - pass data its should be JSON
+
+            let data = await fetch(`${url}/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updateProduct)
+            })
+            let res = await data.json()
+            console.table(res)
+        }
+
+        updateProductById(11)
+
+    </script>
+
+
+
+</body>
+
+</html>
