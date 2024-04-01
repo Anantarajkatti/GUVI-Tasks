@@ -1,0 +1,95 @@
+// import './App.css';
+// import profile from'./ptgrhr.jpeg'
+// import React, { useState } from 'react';
+// function App() {
+
+//   const mapArray=['abhi','ajay','abhay']
+//   const arrofobjects=[
+//     {
+//       name:'abhinav',
+//       age: 28
+//     }, 
+//     {
+//       name:'ajat',
+//       age: 28
+//     },
+//     {
+//       name:'aprameya',
+//       age: 28
+//     },
+//     {
+//       name:'ahinav',
+//       age: 28
+//     }
+
+//   ]
+//   return (
+//     <div className="App">
+//     <Welcome name="asha" age="24"/>
+//     <Welcomeprops name="ajay" age="26"/>
+//     <ImageExample src={profile}/>
+//     {mapArray.map((person)=>(<Welcome name={person}/>))}
+//     {arrofobjects.map((obj)=>(<Welcome name={obj.name} age={obj.age}/>))}
+//     <Counter/>
+//     <Counterusinghook/>
+//     </div>
+//   );
+// }
+
+// function Welcome({name,age}){
+//   return(
+//   <div>hello {name} you are {age} old</div>
+//   )
+// }
+
+// function Welcomeprops(props){
+//   return(
+//     <div>hi {props.name} your age is {props.age}</div>
+//   )
+// }
+
+// function ImageExample({src})
+
+// {
+//   const style={
+//     width:'300px',
+//   height:'300px'}  // here observe that style is in object , and it is not having orddinary syntax as CSS , but different , like '' used for 300px
+//                     // donot use semicolon ; here
+ 
+//   return(
+//     <div>
+//     <img src={src} alt="imagee" style={style}></img>   
+//     <img src={src} style={{width:'300px',height:'300px'}}></img>
+//     </div>// image must be imported first 
+//   )
+// }
+
+// function Counter(){
+//   let like=10;                      // set state hook is used to update the state of component. 
+//   return(                          // here {like} will not show updated value in the web page. To make react listen to event we use Hooks
+//     <div>
+//       <button onClick={()=>{
+//         like++;
+//         console.log(like)}}>like</button>  
+      
+//       <p>{like}</p>
+//     </div>
+//   )
+// }
+
+// function Counterusinghook(){
+//   const[like,setLike]= useState(0) //// now counter is initiated with value of 0....... usestate is like call back
+//   console.log(like)  // here strict mode in index.js iscommented out     <-|
+//   return(<>                                                       
+//     <button onClick={()=>{                                        //          |
+//                            // console.log(counter)//                          |
+//                           setLike(like+1)//                             |
+//                             //                   // if any of the palce we use console.log it will show previous value so use it outside
+//                                                 }}> like Hook</button>
+//     <button onClick={()=>{setLike(like-1)}}>dislike</button>
+//     <p >{like}</p>
+//     <p> so using state hook can reduce function of getElementID.innerHTML</p>
+//     </>
+//   )
+// }
+// export default App;
