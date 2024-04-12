@@ -3,7 +3,7 @@ import React from 'react';
 //import { Inputtextcolor } from './Inputtextcolor';
 import { Counterusinghook } from './Counterusinghook';
 import { useState } from 'react';
-
+import {Routes,Route} from "react-router-dom"
 
 
 
@@ -92,33 +92,46 @@ const initial_PL=[{
 
 function App() {
 
-  const productList=initial_PL;
+  
   return (
     <div className="App">
+    <Routes>
+     <Route path="/" element={<Productlist />}/>
+ 
+     </Routes>
+  </div>)
+  } 
+
+
+    
+ 
+
+function Productlist(){
+  const productList=initial_PL;
+  return(
+
       <div className="product-list">
        {productList.map((item)=>(<Product product={item}/>))}
        </div>
-    </div>
-  );
+  
+  )
 }
 
 function Product({product}){
  
 const [show,setShow]=useState(true)
+const [clicked, setClicked]=useState(false)
 
   const ratingStyle={
     color: product.rating>=4.5? 'green':'red',
     fontSize:'25px'
-  }
+  };
 
   const summaryStyle={
-    display:show ?'none':'block'
+    display:show ?'none':'block' // conditional styling
   }
  return(
-   
-   
-   
-   <div className="product-container">
+ <div className="product-container">
    <img  className="product-poster" src={product.poster} alt=""></img>
    <div className='product-spec'>
       <h4 className="product-name">{product.name}</h4>
@@ -128,10 +141,14 @@ const [show,setShow]=useState(true)
    <p  style={summaryStyle}className="product-summary">{product.summary}</p>
    
    <div className="product-spec">
+  
+
    <h6>{product.price.toLocaleString('en-IN',{style:'currency',currency:'INR'})}</h6>
    <button>Add To Cart</button>
    </div>
    <Counterusinghook/>
+   <button onClick={(()=>setClicked(!clicked))}>conditional rendering</button>
+    {clicked?<p> this is conditional rendering</p>: null}
  </div> )
            
 
