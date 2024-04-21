@@ -102,7 +102,7 @@ function App() {
         
       </ul>
     </nav>
-          <Routes>
+<Routes>
   <Route path="/" element={<Home />}/>
   <Route path="/product" element={<Prodlist />}/> 
   <Route path="/product/:productId"  element={<Productdetails/>}/>

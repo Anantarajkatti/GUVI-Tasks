@@ -33,12 +33,14 @@ export function Product({ product ,id}) {
       <IconButton aria-label="toggle_dsc_btn" color="primary" onClick={() => setShow(!show)}>
      {show?<ExpandMoreIcon/>:< ExpandLessIcon/> }
      </IconButton>
-      <button onClick={() => setShow(!show)}>toggle description</button>
+      {/*<button onClick={() => setShow(!show)}>toggle description</button>*/}
 
 
-      <button onClick={()=>navigate("/color")}>navigate to color</button> 
+      {/*<button onClick={()=>navigate("/color")}>navigate to color</button> */}
+
       <InfoIcon  color="primary" onClick={()=>navigate(`/product/${id}`)}></InfoIcon>
-      <button onClick={()=>navigate(`/product/${id}`)}>product</button>
+
+      {/*<button onClick={()=>{navigate(`/product/${id}`)}}>product</button>*/}
 
 
       <p style={summaryStyle} className="product-summary">{product.summary}</p>
@@ -47,12 +49,15 @@ export function Product({ product ,id}) {
 
 
         <h6>{product.price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })}</h6>
-        <button>Add To Cart</button>
-        <Button variant="contained">MUI Add cart</Button>
+      
+       {/* <button>Add To Cart</button>*/}
+        <Button variant="contained">Add cart</Button>
       </div>
+
       <Counterusinghook />
-      <button onClick={(() => setClicked(!clicked))}>conditional rendering</button>
-      {clicked ? <p> this is conditional rendering</p> : null}
+
+      {/*<button onClick={(() => setClicked(!clicked))}>conditional rendering</button>
+      {clicked ? <p> this is conditional rendering</p> : null}*/}
     </div>);
 
 

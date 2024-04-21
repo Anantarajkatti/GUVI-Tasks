@@ -26,14 +26,14 @@ export function Counterusinghook() {
  
 
 
-    <button onClick={() => {
+  {/* <button onClick={() => {
       // console.log(counter)//                          |
       setLike(like + 1); //                             |
      
       //                   // if any of the palce we use console.log it will show previous value so use it outside
     }}>👍like {like}</button>
   
-    <button onClick={() => { setDislike(dislike+ 1); }}>👎dislike {dislike}</button>
+  <button onClick={() => { setDislike(dislike+ 1); }}>👎dislike {dislike}</button>*/}
   
     </div>
   </>
