@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 
 
-export function Prodlist() {
+export function Prodlist({productList, setProductList}) {
  // const productList = initial_PL;
   const [name,setName]=useState("")
   const [poster,setPoster]=useState("")
@@ -16,7 +16,7 @@ export function Prodlist() {
 
 
    
-     const [productList, setProductList] = useState(initial_PL);
+    
       
      useEffect(()=>{
       const storedproductList=JSON.parse(localStorage.getItem("productList"))

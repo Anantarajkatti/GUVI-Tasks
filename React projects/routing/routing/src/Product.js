@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 export function Product({ product ,id}) {
 
   const [show, setShow] = useState(true);
-  const [clicked, setClicked] = useState(false);
+  //const [clicked, setClicked] = useState(false);
  
    const navigate=useNavigate()
 

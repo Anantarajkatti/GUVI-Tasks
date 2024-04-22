@@ -105,9 +105,9 @@ function SideBar() {
 
             {/* <!-- Nav Item - Tables --> */}
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <Link class="nav-link" to="/table">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Tables</span></Link>
             </li>
 
             {/* <!-- Divider --> */}

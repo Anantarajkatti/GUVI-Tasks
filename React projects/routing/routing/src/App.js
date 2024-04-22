@@ -2,9 +2,11 @@
 //import { Addcolor } from './Addcolor';
 import{Inputtextcolor} from'./Inputtextcolor'
 import './App.css';
-import { Routes,Route,Link, useParams } from 'react-router-dom';
+import { Routes,Route,Link } from 'react-router-dom';
 import { Home } from './Home';
 import { Prodlist } from './Prodlist';
+import { Productdetails } from './Productdetails';
+import { useState } from 'react';
 //import { Addproduct } from './Addproduct';
 
 export const initial_PL=[{
@@ -90,7 +92,7 @@ export const initial_PL=[{
 ];
 
 function App() {
-  
+  const [productList, setProductList] = useState(initial_PL);
   return (
     <div className="App">
 
@@ -104,8 +106,8 @@ function App() {
     </nav>
 <Routes>
   <Route path="/" element={<Home />}/>
-  <Route path="/product" element={<Prodlist />}/> 
-  <Route path="/product/:productId"  element={<Productdetails/>}/>
+  <Route path="/product" element={<Prodlist  productList={productList} setProductList={setProductList}/>}/> 
+  <Route path="/product/:productId"  element={<Productdetails productList={productList}/>}/>
   <Route path="/color" element={<Inputtextcolor />}/>
   
 </Routes>
@@ -120,13 +122,5 @@ function App() {
 }
 
 
-function Productdetails(){
-  const {productId} =useParams()
-  return(<>
-    <h1>Product detail page- {productId} </h1>
-    
-    </>
-  )
-}
   export default App;
 

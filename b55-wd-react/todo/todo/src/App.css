@@ -29,7 +29,7 @@ input{
 
 }
 
-button{
+.AddToDO{
   height: 26px;
   width: 132px;
   background-color: #5dab5d;
@@ -38,4 +38,37 @@ button{
 
 select{
   width:45px;
+}
+.task-container{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+}
+.card{
+  width:300px;
+  height: 200px;
+  background-color:rgb(178, 240, 178) ;
+  font-size: small;
+  padding:10px 10px 10px 15px;
+
+}
+.card-filter{
+  width: 10vw;
+}
+
+ .buttons{
+  position: absolute;
+   display:flex;
+  gap:3px;
+  bottom: 24px;
+    right: 30px;
+  
+}
+
+button{
+  border-radius: 7px;
+  width:75px;
 }
