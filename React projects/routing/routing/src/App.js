@@ -2,12 +2,21 @@
 //import { Addcolor } from './Addcolor';
 import{Inputtextcolor} from'./Inputtextcolor'
 import './App.css';
-import { Routes,Route,Link } from 'react-router-dom';
+import { Routes,Route,Link,useNavigate } from 'react-router-dom';
 import { Home } from './Home';
 import { Prodlist } from './Prodlist';
 import { Productdetails } from './Productdetails';
 import { useState } from 'react';
+import { NotFound } from './NotFound';
+import { AddProduct } from './AddProduct.1';
 //import { Addproduct } from './Addproduct';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { Button } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 export const initial_PL=[{
   name: " iPhone 15 (128 GB)",
@@ -93,23 +102,53 @@ export const initial_PL=[{
 
 function App() {
   const [productList, setProductList] = useState(initial_PL);
+  const navigate=useNavigate();
+  const [mode,setMode]=useState("light")
+  const darkTheme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
   return (
-    <div className="App">
 
-    <nav>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div className="App">
+
+      <AppBar position="static">
+      <Toolbar disableGutters>
+        <Button color="inherit" onClick={()=>navigate("/")}> Home</Button>
+        <Button color="inherit" onClick={()=>navigate("/product")}>ProductList</Button>
+        <Button color="inherit" onClick={()=>navigate("/color")}> Color</Button>
+        <Button color="inherit" onClick={()=>navigate("/product/addproduct")}> Add Product</Button>
+        <Button color="inherit"
+        startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+         onClick={()=>setMode(mode==="light"?"dark":"light")}>
+          {mode==="light"?"dark":"light"}
+        </Button>
+      </Toolbar>
+      </AppBar>
+{/* 
+     <nav>
       <ul>
         <li><Link to="/">Home</Link></li> 
         <li><Link to="/product">ProductList</Link></li>
         <li><Link to="/color">Color</Link></li>
+        <li><Link to="/product/addproduct">Add Product</Link></li>
         
       </ul>
-    </nav>
+    </nav>  */}
 <Routes>
   <Route path="/" element={<Home />}/>
   <Route path="/product" element={<Prodlist  productList={productList} setProductList={setProductList}/>}/> 
   <Route path="/product/:productId"  element={<Productdetails productList={productList}/>}/>
   <Route path="/color" element={<Inputtextcolor />}/>
-  
+  <Route path="*" element={<NotFound/>}/>
+  {/* Redirect class */}
+  <Route path="/items" element={<Prodlist  productList={productList} setProductList={setProductList}/>}/> 
+ 
+{/* add product in new page */}
+<Route path="/product/addproduct" element={<AddProduct  productList={productList} setProductList={setProductList}/>}/> 
 </Routes>
 
 
@@ -118,9 +157,11 @@ function App() {
       
   
     </div>
+    </ThemeProvider>
+     
+    
   );
 }
-
 
   export default App;
 
