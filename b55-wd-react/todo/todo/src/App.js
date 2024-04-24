@@ -11,6 +11,7 @@ function App() {
   const [name,setName]=useState("")
 const [desc,setDesc]=useState("")
 const [status,setStatus]=useState("Notcompleted")
+const[filteredOption,setFilteredOption]=useState("All")
 
 
   const handlefunction=()=>{
@@ -19,20 +20,22 @@ const [status,setStatus]=useState("Notcompleted")
       description: desc,
       Status:status
     }
-    setTasklist([...tasklist,newTask])
+    setTasklist([...tasklist,newTask]);
       
-    setName("");
+    setName("") ;
     setDesc("");
+   
   }
  
 console.log(tasklist)
-
+console.log(name)
+console.log(status)
   return (
     <div className="App">
     <h2 className="heading">MY Todo</h2>
     <div className='inputbar'>
-      <div><input placeholder="TodoName" onChange={(event) => (setName(event.target.value))}></input></div>
-      <div><input placeholder="Todo Discription" onChange={(event) => (setDesc(event.target.value))}></input></div>
+      <div><input placeholder="TodoName" name="name"  value={name} onChange={(event) => (setName(event.target.value))}></input></div>
+      <div><input placeholder="Todo Discription" name='desc' value={desc}  onChange={(event) => (setDesc(event.target.value))}></input></div>
       <div><button className='AddToDO' onClick={handlefunction}>Add ToDo</button></div>
     </div>
     <div className="filterbar">
@@ -40,15 +43,19 @@ console.log(tasklist)
       <div className="filterbutton">
         <div>FilterBy:  </div>
         <select name="All">
-            <option value="All">All</option>
+            <option value="All" onChange={(Event) => {
+          setFilteredOption(Event.target.value)
+           }}>All</option>
             <option value="Notcompleted">Notcompleted</option>
             <option value="Completed">Complted</option>
         </select>
       </div>
     </div>
+    
     <div className="task-container">
-      {tasklist.map((task)=>{return(
-        <Card task={task } status={setStatus} function={handlefunction}/>
+      {tasklist.map((task,index)=>{return(
+         
+        <Card tasklist={tasklist} setTasklist={setTasklist} task={task }  index={index} />
         
       )})}
     </div>
@@ -56,10 +63,18 @@ console.log(tasklist)
   );
 }
 
-function Card({ task,  setStatus}) {
+function Card({ tasklist,setTasklist,task,  status,index}) {
   const [selectedOption, setSelectedOption] = useState("Notcompleted");
-   const [updatetask,setUpdatetask]=useState('')
-  setStatus=selectedOption
+   const handleDelete=()=>{
+    const updatedTasklist = tasklist.filter((_, i) => i !== index);
+    setTasklist(updatedTasklist);
+   }
+
+  task.Status=selectedOption
+ console.log(status)
+  console.log(task)
+  console.log(index)
+  console.log(tasklist)
   return (
     <div className="card">
       <p> Name:  {task.name}</p>
@@ -76,8 +91,8 @@ function Card({ task,  setStatus}) {
       </p>
         <div className='buttons'>
         <button style={{ backgroundColor:"rgb(80 162 83)"  }} >Edit</button>
-        <button style={{ backgroundColor: "rgb(223 142 142)" }}>Delete</button>
-        </div>
+        <button style={{ backgroundColor: "rgb(223 142 142)" }} onClick={handleDelete}>Delete</button>
+          </div>
        
     </div>
   );
