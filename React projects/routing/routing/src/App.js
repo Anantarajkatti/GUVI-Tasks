@@ -17,6 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { Button } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { ContextExample } from './ContextExample';
 
 export const initial_PL=[{
   name: " iPhone 15 (128 GB)",
@@ -104,13 +105,14 @@ function App() {
   const [productList, setProductList] = useState(initial_PL);
   const navigate=useNavigate();
   const [mode,setMode]=useState("light")
+
   const darkTheme = createTheme({
     palette: {
       mode: mode,
     },
   });
   return (
-
+  
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
@@ -121,7 +123,8 @@ function App() {
         <Button color="inherit" onClick={()=>navigate("/product")}>ProductList</Button>
         <Button color="inherit" onClick={()=>navigate("/color")}> Color</Button>
         <Button color="inherit" onClick={()=>navigate("/product/addproduct")}> Add Product</Button>
-        <Button color="inherit"
+        <Button color='inherit' onClick={()=>navigate("/contextexample")}>Contecxt Example</Button>
+        <Button color="inherit" 
         startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
          onClick={()=>setMode(mode==="light"?"dark":"light")}>
           {mode==="light"?"dark":"light"}
@@ -144,11 +147,15 @@ function App() {
   <Route path="/product/:productId"  element={<Productdetails productList={productList}/>}/>
   <Route path="/color" element={<Inputtextcolor />}/>
   <Route path="*" element={<NotFound/>}/>
+ 
   {/* Redirect class */}
   <Route path="/items" element={<Prodlist  productList={productList} setProductList={setProductList}/>}/> 
  
 {/* add product in new page */}
 <Route path="/product/addproduct" element={<AddProduct  productList={productList} setProductList={setProductList}/>}/> 
+
+{/* context example */}
+<Route path="/contextexample" element={<ContextExample />}/>
 </Routes>
 
 

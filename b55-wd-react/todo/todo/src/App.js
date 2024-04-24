@@ -78,7 +78,7 @@ function Card({ task,  setStatus}) {
         <button style={{ backgroundColor:"rgb(80 162 83)"  }} >Edit</button>
         <button style={{ backgroundColor: "rgb(223 142 142)" }}>Delete</button>
         </div>
-      
+       
     </div>
   );
 }

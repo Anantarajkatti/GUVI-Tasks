@@ -1,0 +1,47 @@
+nav {
+  display: flex;
+  justify-content: space-around; /* Adjust as needed */
+  background-color: #f4f4f4; /* Background color for the navigation */
+  padding: 10px 0; /* Add padding to top and bottom */
+}
+
+nav ul {
+  list-style-type: none; /* Remove default list styles */
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 10px; /* Adjust spacing between menu items */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333; /* Link color */
+  padding: 5px 10px; /* Add padding to make clickable area larger */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+nav ul li a:hover {
+  color: #007bff; /* Change color on hover */
+}
+ .container{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+ }
+
+  .card {
+    width: 300px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    background-color: #ffffff; /* Card background color */
+    border-radius: 8px; /* Add border radius for rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow with offset-x, offset-y, blur-radius, and color */
+    /* Adjust values for offset-x, offset-y, blur-radius, and color as needed */
+} 
+img{
+  width:300px;
+  height:150px
+}
